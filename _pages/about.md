@@ -1,4 +1,3 @@
-
 ---
 permalink: /
 title: "About Me"
@@ -7,6 +6,7 @@ redirect_from:
   - /about/
   - /about.html
 ---
+
 
 Hi! I'm **Shirley He**. I received my master's degree from **Washington University in St. Louis**, where I developed a strong interest in optimal control, dynamical systems, and numerical optimization.
 
