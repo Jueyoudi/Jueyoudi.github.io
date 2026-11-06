@@ -24,13 +24,13 @@ repository               : "academicpages/academicpages.github.io"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "Your Sidebar Name"
-  pronouns         : # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
-  location         : "Earth"
-  employer         : "Red Brick University"
+  name             : "Mengyan He"
+  pronouns         :  "she/her"  
+  bio              : "Ph.D. Applicant | Optimal Control & Dynamical Systems"
+  location         : "China Mainland"
+  employer         : "Pingan Oneconnect"
   uri              : # URL
-  email            : "none@example.org" 
+  email            : "h.mengyan@wustl.edu" 
 
   # Academic websites
   academia         : # URL
