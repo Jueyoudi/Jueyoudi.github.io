@@ -21,6 +21,9 @@ main:
   - title: "Research Notes"
     url: /research-notes/
 
+  - title: "Teaching"
+    url: /teaching/
+
   - title: "CV"
     url: /cv/
 
