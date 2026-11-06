@@ -7,8 +7,6 @@ redirect_from:
   - /about.html
 ---
 
-# About Me
-
 Hi! I'm **Shirley He**. I received my master's degree from **Washington University in St. Louis**, where I developed a strong interest in optimal control, dynamical systems, and numerical optimization.
 
 My research experience has primarily focused on **ensemble control**, including pattern formation, distribution steering, and state-constrained optimal control. I am particularly interested in moment-based methods and computational approaches to control problems.
