@@ -29,10 +29,10 @@ $$
 
 where:
 
-- *x(t,\beta)* denotes the state of an individual system.
-- *\beta* represents the ensemble parameter.
-- $\psi_i(\beta)$ denotes a polynomial basis function.
-- $u_i(t)$ represents a control input shared across the ensemble.
+- x(t, β) denotes the state of an individual system.
+- β represents the ensemble parameter.
+- ψᵢ(β) denotes a polynomial basis function.
+- uᵢ(t) represents a control input shared across the ensemble.
 
 The goal is to determine control inputs that steer the ensemble toward a prescribed target distribution.
 
@@ -42,7 +42,7 @@ Directly handling the continuously parameterized ensemble can be computationally
 
 The key idea is to represent the ensemble state using a sequence of moments rather than directly working with the entire parameter-dependent state function.
 
-For a selected basis function $\psi_k(\beta)$, define the $k$-th moment as
+For a selected basis function ψₖ(β), define the k-th moment as
 
 $$
 m_k(t)
@@ -93,7 +93,7 @@ $$
 \psi_k(\beta)=\beta^k,
 $$
 
-with the parameter domain $[0,1]$, the moment becomes
+with the parameter domain [0, 1], the moment becomes
 
 $$
 m_k(t)=\int_0^1\beta^k x(t,\beta)\,d\beta.
@@ -149,11 +149,11 @@ c_{k-1}m_{k-1}(t)
 \sum_{i=1}^{p}H_{ki}u_i(t).
 $$
 
-Here, the coefficients $c_k$ are determined by the normalization of the Legendre basis.
+Here, the coefficients cₖ are determined by the normalization of the Legendre basis.
 
 The recurrence relation produces a structured, sparse representation of the moment dynamics.
 
-For an orthonormal Legendre basis, the matrix associated with multiplication by $\beta$ has a tridiagonal structure.
+For an orthonormal Legendre basis, the matrix associated with multiplication by β has a tridiagonal structure.
 
 ### 3.3 Chebyshev Polynomial Basis
 
@@ -201,11 +201,11 @@ $$
 
 Here:
 
-- $L$ represents the coupling between moments induced by the original ensemble dynamics.
-- $H$ describes how the shared control inputs influence the moments.
-- $q$ determines the truncation order of the moment representation.
+- L represents the coupling between moments induced by the original ensemble dynamics.
+- H describes how the shared control inputs influence the moments.
+- q determines the truncation order of the moment representation.
 
-For the polynomial bases considered, the structure of $L$ and $H$ can be obtained from recurrence relations and basis-function inner products.
+For the polynomial bases considered, the structure of L and H can be obtained from recurrence relations and basis-function inner products.
 
 This transformation is the central step of the project: it converts the original continuously parameterized ensemble control problem into a finite-dimensional linear control problem.
 
@@ -241,7 +241,7 @@ $$
 
 ### Moment Trajectory Tracking
 
-For a prescribed target moment trajectory $m^*(t)$, another objective is
+For a prescribed target moment trajectory m*(t), another objective is
 
 $$
 \min_u
@@ -261,9 +261,9 @@ The experiments used an ensemble of 50 systems and compared different moment rep
 
 In the reported experiments:
 
-- Legendre basis: truncation order $q=25$
-- Chebyshev basis: truncation order $q=25$
-- Monomial basis: truncation order $q=10$
+- **Legendre basis:** truncation order q = 25
+- **Chebyshev basis:** truncation order q = 25
+- **Monomial basis:** truncation order q = 10
 
 The numerical results illustrate how the choice of basis affects the accuracy and stability of the control computation.
 
@@ -287,7 +287,7 @@ My work in this project focused on:
 
 1. **Moment Dynamics Derivation:** Deriving the moment equations of a multi-input linear ensemble system using polynomial basis functions.
 
-2. **Finite-Dimensional Representation:** Constructing the associated moment system in the form $\dot{m}=Lm+Hu$.
+2. **Finite-Dimensional Representation:** Constructing the associated moment system in the form ṁ = Lm + Hu.
 
 3. **Polynomial Basis Comparison:** Investigating monomial, Legendre, and Chebyshev representations and their corresponding matrix structures.
 
