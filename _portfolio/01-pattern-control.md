@@ -1,4 +1,3 @@
-
 ---
 title: "Pattern Control of Ensemble Dynamical Systems"
 excerpt: "Steering parameter-dependent dynamical systems toward geometric target patterns using moment-based optimal control."
