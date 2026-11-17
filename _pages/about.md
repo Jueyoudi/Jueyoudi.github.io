@@ -24,6 +24,7 @@ I am seeking **Ph.D. opportunities for Fall 2027**, particularly in Electrical a
 I am interested in developing mathematical and computational approaches to control problems, particularly those involving high-dimensional or parameter-dependent dynamical systems.
 
 [Learn more about my research](/research/)
+[View My CV](/files/CV2027.pdf)
 
 ---
 
