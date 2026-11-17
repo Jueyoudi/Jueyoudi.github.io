@@ -187,7 +187,8 @@ The resulting system has a structured matrix representation, with input coeffici
 
 The comparison of these three bases illustrates how polynomial representations influence the structure and numerical properties of moment-based control systems.
 
-## 4. Finite-Dimensional Moment System
+
+## 4. From Ensemble Dynamics to a Moment System
 
 After deriving the individual moment equations, I constructed a truncated moment vector:
 
@@ -211,13 +212,159 @@ $$
 
 Here:
 
-- L represents coupling between moments induced by the ensemble dynamics.
+- L represents the coupling between moments induced by the ensemble dynamics.
 - H describes the influence of shared control inputs on the moments.
 - q determines the truncation order.
 
-For the polynomial bases considered, the matrices L and H can be constructed using polynomial recurrence relations and basis-function inner products.
+The specific structures of L and H depend on the selected polynomial basis.
 
-This transformation allows the original ensemble control problem to be approximated and studied using finite-dimensional linear control methods.
+### 4.1 Monomial Basis
+
+For the monomial basis, the moment dynamics are
+
+$$
+\dot{m}_k(t)
+=
+m_{k+1}(t)
++
+\sum_{i=1}^{p}\frac{u_i(t)}{k+i}.
+$$
+
+The corresponding truncated system has the matrix representation
+
+$$
+L=
+\begin{bmatrix}
+0 & 1 & 0 & \cdots & 0\\
+0 & 0 & 1 & \cdots & 0\\
+\vdots & & \ddots & \ddots & \vdots\\
+0 & \cdots & 0 & 0 & 1\\
+0 & \cdots & 0 & 0 & 0
+\end{bmatrix},
+$$
+
+$$
+H=
+\begin{bmatrix}
+1 & \frac12 & \cdots & \frac1p\\
+\frac12 & \frac13 & \cdots & \frac1{p+1}\\
+\vdots & \vdots & \ddots & \vdots\\
+\frac1{q+1} & \frac1{q+2} & \cdots & \frac1{q+p}
+\end{bmatrix}.
+$$
+
+The matrix L has a shift structure, while H is a Hilbert-type matrix.
+
+Although this representation is straightforward to derive, the input matrix H can become severely ill-conditioned as the truncation order increases, leading to numerical difficulties in control computation.
+
+### 4.2 Legendre Polynomial Basis
+
+For the orthonormal Legendre basis, the recurrence relation leads to
+
+$$
+\dot{m}_k(t)
+=
+c_km_{k+1}(t)
++
+c_{k-1}m_{k-1}(t)
++
+u_{k+1}(t),
+$$
+
+where the last term is present when the corresponding control input is included, and
+
+$$
+c_k=
+\frac{k+1}
+{\sqrt{(2k+1)(2k+3)}}.
+$$
+
+The resulting matrices are
+
+$$
+L=
+\begin{bmatrix}
+0 & c_0 & 0 & \cdots & 0\\
+c_0 & 0 & c_1 & \ddots & \vdots\\
+0 & c_1 & 0 & \ddots & 0\\
+\vdots & \ddots & \ddots & \ddots & c_{q-1}\\
+0 & \cdots & 0 & c_{q-1} & 0
+\end{bmatrix},
+$$
+
+$$
+H=
+\begin{bmatrix}
+1 & 0 & \cdots & 0\\
+0 & 1 & \cdots & 0\\
+\vdots & \vdots & \ddots & \vdots\\
+0 & 0 & \cdots & 1
+\end{bmatrix}.
+$$
+
+Here, H is the identity matrix when p = q + 1.
+
+The Legendre representation produces a symmetric tridiagonal coupling matrix L and a particularly simple input matrix H.
+
+This structure is advantageous for numerical implementation and avoids the Hilbert-type input matrix arising from the monomial basis.
+
+### 4.3 Chebyshev Polynomial Basis
+
+For the Chebyshev basis, the recurrence relation gives
+
+$$
+\beta T_k(\beta)
+=
+\frac12
+\left(
+T_{k+1}(\beta)+T_{k-1}(\beta)
+\right),
+\quad k\geq1.
+$$
+
+Using the matrix convention presented in the computational study, the truncated moment system is represented by
+
+$$
+L=
+\begin{bmatrix}
+0 & \frac12 & 0 & \cdots & 0\\
+\frac12 & 0 & \frac12 & \ddots & \vdots\\
+0 & \frac12 & 0 & \ddots & 0\\
+\vdots & \ddots & \ddots & \ddots & \frac12\\
+0 & \cdots & 0 & \frac12 & 0
+\end{bmatrix},
+$$
+
+$$
+H=
+\begin{bmatrix}
+\pi & 0 & \cdots & 0\\
+0 & \frac{\pi}{2} & \cdots & 0\\
+\vdots & \vdots & \ddots & \vdots\\
+0 & 0 & \cdots & \frac{\pi}{2}
+\end{bmatrix}.
+$$
+
+The Chebyshev representation also produces a sparse coupling matrix, while the input matrix has a diagonal structure under the corresponding weighted inner product.
+
+As with the Legendre basis, the structured matrices provide a convenient representation for numerical optimal control.
+
+### 4.4 Comparison of Moment Representations
+
+The three polynomial bases lead to different matrix structures:
+
+| Basis | Matrix L | Matrix H |
+|---|---|---|
+| Monomial | Shift matrix | Hilbert-type |
+| Legendre | Symmetric tridiagonal | Identity |
+| Chebyshev | Tridiagonal | Diagonal |
+
+The comparison illustrates how selecting different polynomial bases changes the numerical properties of the moment system.
+
+In particular, the monomial representation may suffer from severe ill-conditioning, whereas orthogonal polynomial representations can lead to more structured input matrices.
+
+These observations motivated further numerical comparisons of distribution steering performance and approximation accuracy.
+
 
 ## 5. Optimal Control Formulation
 
