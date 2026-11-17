@@ -697,75 +697,114 @@ The argument concerns the chosen constraint-checking times. Additional time regu
 
 ---
 
-## 7. Simulation Setup and Results
+## 7. Simulation Results
 
-The manuscript includes an ensemble of harmonic oscillators as an illustrative dynamical model.
+To investigate the effect of state constraints on ensemble optimal control, I conducted two numerical experiments involving an ensemble of harmonic oscillators.
 
-A representative form is
+The experiments consider two geometric steering tasks:
 
-$$
-\dot{x}(t,\beta)=
-\beta
-\begin{bmatrix}
-0&-1\\
-1&0
-\end{bmatrix}
-x(t,\beta)
-+
-I_2u(t).
-$$
+1. **Point-to-Point Control with a Forbidden Region**
+2. **Line-to-Line Control with Boundary Constraints**
 
-The simulation section below is prepared for my constrained-control experiments.
+For each task, I compared the original unconstrained trajectories with those obtained after incorporating state constraints into the optimal control formulation.
 
-Actual figures and videos can be added after verifying the displayed trajectories and constraint values against the corresponding numerical runs.
+These experiments illustrate how constraints influence the geometric behavior of ensemble trajectories while steering the systems toward prescribed targets.
 
-### 7.1 Ensemble Trajectories
+---
 
-<img src="/images/simulations/constrained-trajectories.png"
-alt="State trajectories for a state-constrained ensemble control experiment"
-width="95%">
+### 7.1 Case I: Point-to-Point Control with a Forbidden Region
 
-*Figure 1. State trajectories under a shared control input. The figure illustrates the controlled ensemble and its target configuration. Constraint boundaries and violations can be highlighted where applicable.*
+#### Problem Setup
 
-### 7.2 Constraint Satisfaction
+The objective is to steer an ensemble of systems from the initial point (0, 0) toward the target point (1, 1), using a shared control input.
 
-<img src="/images/simulations/constrained-feasibility.png"
-alt="Constraint function values across ensemble parameters and time"
-width="95%">
+A circular forbidden region is introduced in the state space, centered approximately at (0.5, 0.5).
 
-*Figure 2. Constraint function values across ensemble parameters and time.*
+The control objective is to reach the target while avoiding the forbidden region.
 
-For the sign convention g ≥ 0, negative values indicate violations of the state constraint.
+In the following figures:
 
-A numerical comparison can illustrate how moment-based PSD constraints influence the feasibility of controlled ensemble trajectories.
+- **Blue point:** Initial state
+- **Red point:** Target state
+- **Red circle:** Forbidden region
+- **Colored curves:** Trajectories of individual systems in the ensemble
 
-### 7.3 Effects of Truncation Orders
+#### Without State Constraints
 
-<img src="/images/simulations/constrained-truncation.png"
-alt="Comparison across state moment order N and PSD constraint order K"
-width="95%">
+<img src="/images/simulations/har_cir_0.png" alt="Unconstrained point-to-point ensemble trajectories" width="95%">
 
-*Figure 3. Numerical comparison across state truncation order N and PSD constraint order K.*
+*Figure 1. Point-to-point ensemble control without state constraints.*
 
-This experiment is intended to investigate how different truncation orders affect:
+Without state constraints, the computed trajectories follow approximately direct paths from the initial point to the target.
 
-- Terminal approximation error
-- Minimum constraint margin
-- Objective function value
-- Computational complexity
+Although the ensemble approaches the desired terminal state, the trajectories pass through the circular forbidden region.
 
-The comparison provides numerical insight into the approximation properties studied in the convergence analysis.
+This illustrates a limitation of unconstrained optimal control: achieving the terminal objective does not necessarily guarantee that intermediate states satisfy additional geometric or safety requirements.
 
-### 7.4 Simulation Video
+#### With State Constraints
 
-<video width="100%" controls playsinline preload="metadata">
-  <source src="/videos/constrained-ensemble-control.mp4" type="video/mp4">
-  Your browser does not support HTML5 video.
-</video>
+<img src="/images/simulations/har_cir_21.png" alt="Constrained point-to-point ensemble trajectories avoiding a circular forbidden region" width="95%">
 
-*Simulation video. Time evolution of the controlled ensemble, illustrating the state trajectories, prescribed target configuration, and applicable constraint boundaries.*
+*Figure 2. Point-to-point ensemble control with a circular forbidden region.*
 
-**Media status:** The figures and video above are placeholders for actual numerical results.
+After incorporating the state constraints, the computed trajectories change significantly.
+
+Instead of following approximately straight paths, the ensemble trajectories bend around the circular obstacle while progressing toward the target state.
+
+The resulting paths demonstrate how the constrained control formulation changes the evolution of the ensemble to account for the forbidden region.
+
+**Key Observation:** The state constraints reshape the trajectories, allowing the control problem to account for obstacle avoidance in addition to terminal-state steering.
+
+---
+
+### 7.2 Case II: Line-to-Line Control with Boundary Constraints
+
+#### Problem Setup
+
+The second experiment considers a line-to-line steering problem.
+
+The objective is to drive an ensemble from an initial line segment toward a prescribed target line segment.
+
+A rectangular admissible region is introduced to restrict the state trajectories within specified boundaries.
+
+In the following figures:
+
+- **Red solid line:** Initial line segment
+- **Blue solid line:** Target line segment
+- **Red dashed rectangle:** Admissible state region
+- **Orange curves:** Trajectories of individual systems in the ensemble
+
+The objective is to steer the ensemble toward the target line while respecting the prescribed state boundaries.
+
+#### Without State Constraints
+
+<img src="/images/simulations/x_opt.png" alt="Unconstrained line-to-line ensemble trajectories" width="95%">
+
+*Figure 3. Line-to-line ensemble control without state constraints.*
+
+Without explicitly imposing state constraints, the trajectories exhibit large excursions in the state space.
+
+Several individual trajectories extend well beyond the prescribed rectangular boundaries before approaching the target line.
+
+Although the control input is designed to achieve the desired terminal configuration, the intermediate trajectories can deviate substantially from the admissible region.
+
+This demonstrates why terminal-state accuracy alone is insufficient for constrained ensemble control problems.
+
+#### With State Constraints
+
+<img src="/images/simulations/con_3.png" alt="Constrained line-to-line ensemble trajectories within rectangular boundaries" width="95%">
+
+*Figure 4. Line-to-line ensemble control with rectangular state constraints.*
+
+After introducing boundary constraints, the ensemble trajectories exhibit a more confined evolution.
+
+Compared with the unconstrained case, the large excursions outside the rectangular region are substantially reduced.
+
+The trajectories remain visually concentrated within the prescribed boundaries while steering the ensemble toward the target line.
+
+The constrained solution illustrates how state restrictions can regulate intermediate trajectories without abandoning the terminal steering objective.
+
+**Key Observation:** The addition of state constraints significantly reduces excessive trajectory excursions and produces paths that better respect the admissible state region.
 
 ---
 
