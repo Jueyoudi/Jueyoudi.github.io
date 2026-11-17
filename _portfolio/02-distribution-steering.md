@@ -29,8 +29,8 @@ $$
 
 where:
 
-- $x(t,\beta)$ denotes the state of an individual system.
-- $\beta$ represents the ensemble parameter.
+- *x(t,\beta)* denotes the state of an individual system.
+- *\beta* represents the ensemble parameter.
 - $\psi_i(\beta)$ denotes a polynomial basis function.
 - $u_i(t)$ represents a control input shared across the ensemble.
 
