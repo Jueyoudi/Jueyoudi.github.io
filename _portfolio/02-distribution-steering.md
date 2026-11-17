@@ -427,29 +427,26 @@ This is the setting used in the polynomial-basis derivations above.
 
 I investigated the transformation from a truncated Gaussian distribution toward a truncated Gaussian mixture distribution.
 
-The numerical experiments used an ensemble of 50 systems and compared the performance of different polynomial bases.
+The numerical experiments compare different moment representations and show the evolution of the computed state xₜ against the target profile xₜ*.
 
-The reported settings include:
+In the figures below:
 
-- **Legendre basis:** truncation order q = 25
-- **Chebyshev basis:** truncation order q = 25
-- **Monomial basis:** truncation order q = 10
+- **Blue solid line** denotes the computed state xₜ.
+- **Grey dashed line** denotes the target state xₜ*.
 
-The experiments examine the accuracy and numerical behavior of the resulting moment-based control methods.
+### Simulation Results
 
-**Simulation figures and videos will be added here.**
+**Chebyshev Basis**
 
-### 6.3 Numerical Conditioning
+<img src="/images/simulations/che_dis.png" alt="Distribution steering using Chebyshev basis" width="90%">
 
-An important observation concerns the monomial representation.
+*Distribution steering under the Chebyshev basis. The blue solid line represents the computed state xₜ, and the grey dashed line represents the target state xₜ*. The Chebyshev representation provides a structured moment system and favorable numerical behavior.*
 
-Although the monomial basis leads to a relatively simple analytical representation, the corresponding Hilbert-type input matrix can become poorly conditioned.
+**Legendre Basis**
 
-This can produce excessively large control inputs and increase sensitivity in the original ensemble trajectories.
+<img src="/images/simulations/leg_distribution.png" alt="Distribution steering using Legendre basis" width="90%">
 
-The reported Legendre and Chebyshev experiments exhibit more favorable numerical behavior.
-
-These observations highlight the importance of basis selection for computational distributional control.
+*Distribution steering under the Legendre basis. The blue solid line represents the computed state xₜ, and the grey dashed line represents the target state xₜ*. The Legendre basis yields a structured tridiagonal moment coupling matrix and performs well in the numerical experiments.*
 
 ---
 
@@ -621,19 +618,52 @@ The simulation illustrates the evolution of the empirical output distribution un
 
 **Control input figure: To be added.**
 
-### 7.6 Labeled vs. Unlabeled Measurements
 
-The two cases illustrate different perspectives on ensemble control.
+### 7.6 Simulation Results: Distribution Evolution
 
-| Aspect | Labeled Measurements | Unlabeled Measurements |
-|---|---|---|
-| Available information | State associated with β | Aggregated output distribution |
-| Moment representation | Moments of the parameter-dependent state | Moments of the output measure |
-| Mathematical focus | Polynomial basis transformation | Distributional moment representation |
-| Control formulation | Finite-dimensional linear moment control | Optimal transport-based moment tracking |
-| Main challenge | Basis selection and numerical conditioning | Loss of individual parameter-state correspondence |
+The following simulations illustrate the evolution of the ensemble output distribution under the designed control inputs in the unlabeled measurement setting.
 
-The unlabeled formulation demonstrates how moment-based representations can also be used when the available information is distributional rather than individually labeled.
+Starting from an approximately Gaussian distribution with a single peak, the ensemble gradually evolves toward a bimodal Gaussian mixture distribution, characterized by two distinct peaks.
+
+
+#### Histogram Visualization
+
+<img src="/images/simulations/unlabled_3d.png" alt="Histogram evolution from a Gaussian distribution to a bimodal Gaussian mixture" width="100%">
+
+*Figure 1. Evolution of the empirical state distribution at ten consecutive time steps.*
+
+Each histogram represents the distribution of ensemble states at a particular time step.
+
+- **Horizontal axis (x):** The values of the individual ensemble states x(t, β). Each bar corresponds to a specific interval of state values (bin).
+- **Vertical axis (Frequency):** The number of individual systems whose state values fall within the corresponding interval. Taller bars indicate that more systems have state values within that range.
+- **Time steps (t = 1, ..., 10):** The ten panels illustrate how the distribution evolves under the applied control inputs.
+
+At the beginning, most state values are concentrated around a single central peak, forming an approximately Gaussian distribution.
+
+As time progresses, the state values gradually redistribute. The initially unimodal distribution develops two distinct peaks, approaching the desired bimodal Gaussian mixture distribution.
+
+This illustrates how the control inputs reshape the distribution of the ensemble as a whole, even when individual system labels are unavailable.
+
+
+
+#### 3D Visualization of Distribution Evolution
+
+<img src="/images/simulations/unlabled_3d.png" alt="3D visualization of distribution evolution" width="100%">
+
+*Figure 2. Three-dimensional visualization of the evolution from a unimodal Gaussian distribution toward a bimodal Gaussian mixture.*
+
+The three axes represent:
+
+- **Yₜ:** The observed state values, grouped into intervals.
+- **t:** The simulation time, progressing from the back toward the front of the figure.
+- **μₜ (Frequency):** The number of ensemble states falling within each value interval at a given time.
+
+Each row of bars represents a histogram at a particular time step. The height of each bar indicates how many individual systems have state values within the corresponding interval.
+
+Reading the figure from back to front, the initially concentrated, single-peaked distribution gradually separates into two peaks.
+
+The 3D visualization provides a continuous perspective on the redistribution of ensemble states over time and illustrates the Gaussian-to-Gaussian-mixture steering process.
+
 
 ---
 
