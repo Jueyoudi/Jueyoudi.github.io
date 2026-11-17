@@ -1,4 +1,3 @@
-
 ---
 title: "ESE 415 — Optimization"
 collection: teaching
