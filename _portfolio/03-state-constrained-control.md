@@ -828,7 +828,7 @@ In the following figures:
 
 #### Without State Constraints
 
-<img src="/images/simulations/nonlinear_car_ori_1.png" alt="Nonlinear ensemble trajectories without obstacle avoidance constraints" width="95%">
+<img src="/videos/nonlinear_car_ori_1.png" alt="Nonlinear ensemble trajectories without obstacle avoidance constraints" width="95%">
 
 *Figure 5. Unconstrained trajectories of the nonlinear ensemble system.*
 
@@ -840,7 +840,7 @@ This illustrates that achieving the desired terminal position does not automatic
 
 #### With State Constraints
 
-<img src="/images/simulations/nonlinear_car_fine.png" alt="State-constrained nonlinear ensemble trajectories with obstacle avoidance" width="95%">
+<img src="/videos/nonlinear_car_fine.png" alt="State-constrained nonlinear ensemble trajectories with obstacle avoidance" width="95%">
 
 *Figure 6. Constrained trajectories of the nonlinear ensemble system.*
 
@@ -864,22 +864,6 @@ The following video illustrates the time evolution of the constrained nonlinear 
 </video>
 
 *Video 1. Time evolution of the state-constrained nonlinear ensemble system. The simulation illustrates how systems with different parameter values evolve under a shared control input while accounting for the circular obstacle.*
-
-#### Discussion
-
-This experiment extends the constrained ensemble control framework from linear systems to a nonlinear setting.
-
-The results highlight three important aspects:
-
-1. **Nonlinear Dynamics:** The presence of nonlinear state evolution makes trajectory planning more challenging than in the linear harmonic oscillator examples.
-
-2. **Parameter Heterogeneity:** Different parameter values β produce distinct trajectories, even though the ensemble shares a common control input.
-
-3. **State-Constrained Motion Planning:** Introducing a forbidden region changes the optimized trajectories, creating a trade-off between reaching the target and respecting state constraints.
-
-The comparison demonstrates how incorporating state constraints affects the collective behavior of a nonlinear ensemble.
-
-While the figures visually illustrate obstacle avoidance, rigorous verification of constraint satisfaction requires checking the trajectories over the full parameter domain and time interval.
 
 ---
 
