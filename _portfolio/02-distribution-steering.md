@@ -628,7 +628,7 @@ Starting from an approximately Gaussian distribution with a single peak, the ens
 
 #### Histogram Visualization
 
-<img src="/images/simulations/unlabled_3d.png" alt="Histogram evolution from a Gaussian distribution to a bimodal Gaussian mixture" width="100%">
+<img src="/images/simulations/unlabled_3.png" alt="Histogram evolution from a Gaussian distribution to a bimodal Gaussian mixture" width="100%">
 
 *Figure 1. Evolution of the empirical state distribution at ten consecutive time steps.*
 
