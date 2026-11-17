@@ -1,4 +1,3 @@
-
 ---
 title: "Distribution Steering via Moment-Based Optimal Control"
 excerpt: "Steering parameter-dependent ensembles toward prescribed target distributions using moment-based representations."
