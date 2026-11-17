@@ -1,4 +1,3 @@
-
 ---
 title: "State-Constrained Ensemble Optimal Control"
 excerpt: "Investigating moment-based formulations and numerical methods for ensemble optimal control under state constraints."
