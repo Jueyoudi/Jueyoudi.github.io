@@ -806,6 +806,81 @@ The constrained solution illustrates how state restrictions can regulate interme
 
 **Key Observation:** The addition of state constraints significantly reduces excessive trajectory excursions and produces paths that better respect the admissible state region.
 
+
+### 7.3 Case III: Nonlinear Ensemble Control with Obstacle Avoidance
+
+#### Problem Setup
+
+To further investigate the applicability of constrained ensemble control, I considered a more complex nonlinear dynamical system with the state variables (x, y, θ), representing planar position and orientation.
+
+Unlike the previous linear ensemble examples, the nonlinear dynamics introduce additional challenges in trajectory planning and control.
+
+The ensemble consists of multiple systems with different parameter values β, all driven by shared control inputs.
+
+The objective is to steer the ensemble from the initial position (1, 1) toward the target position (2, 2), while avoiding a circular forbidden region in the state space.
+
+In the following figures:
+
+- **Black dot:** Initial position
+- **Red star:** Target position
+- **Red circle:** Forbidden region
+- **Colored curves:** Trajectories corresponding to different system parameters β
+
+#### Without State Constraints
+
+<img src="/images/simulations/nonlinear_car_ori_1.png" alt="Nonlinear ensemble trajectories without obstacle avoidance constraints" width="95%">
+
+*Figure 5. Unconstrained trajectories of the nonlinear ensemble system.*
+
+Without explicit state constraints, the computed trajectories follow relatively smooth and similar paths toward the target position.
+
+However, several trajectories pass through the circular forbidden region.
+
+This illustrates that achieving the desired terminal position does not automatically guarantee obstacle avoidance, particularly when a common control input must accommodate systems with different parameter values.
+
+#### With State Constraints
+
+<img src="/images/simulations/nonlinear_car_fine.png" alt="State-constrained nonlinear ensemble trajectories with obstacle avoidance" width="95%">
+
+*Figure 6. Constrained trajectories of the nonlinear ensemble system.*
+
+After introducing obstacle avoidance constraints, the computed trajectories exhibit substantially different geometric behavior.
+
+Compared with the unconstrained case, the trajectories are redirected away from the circular forbidden region.
+
+The constrained paths become more complex, reflecting the additional difficulty of coordinating a heterogeneous nonlinear ensemble under a shared control input.
+
+The different trajectories also illustrate how parameter variations influence the response of individual systems, even when they are subject to the same control law.
+
+**Key Observation:** The state constraints significantly reshape the trajectories and reduce their intersection with the forbidden region, demonstrating the role of constrained optimal control in nonlinear ensemble motion planning.
+
+#### Simulation Video
+
+The following video illustrates the time evolution of the constrained nonlinear ensemble trajectories.
+
+<video width="100%" controls playsinline preload="metadata">
+  <source src="/videos/nonlinear-car-control.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
+
+*Video 1. Time evolution of the state-constrained nonlinear ensemble system. The simulation illustrates how systems with different parameter values evolve under a shared control input while accounting for the circular obstacle.*
+
+#### Discussion
+
+This experiment extends the constrained ensemble control framework from linear systems to a nonlinear setting.
+
+The results highlight three important aspects:
+
+1. **Nonlinear Dynamics:** The presence of nonlinear state evolution makes trajectory planning more challenging than in the linear harmonic oscillator examples.
+
+2. **Parameter Heterogeneity:** Different parameter values β produce distinct trajectories, even though the ensemble shares a common control input.
+
+3. **State-Constrained Motion Planning:** Introducing a forbidden region changes the optimized trajectories, creating a trade-off between reaching the target and respecting state constraints.
+
+The comparison demonstrates how incorporating state constraints affects the collective behavior of a nonlinear ensemble.
+
+While the figures visually illustrate obstacle avoidance, rigorous verification of constraint satisfaction requires checking the trajectories over the full parameter domain and time interval.
+
 ---
 
 ## 8. Research Focus and Takeaways
