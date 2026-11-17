@@ -23,7 +23,7 @@ repository               : "Jueyoudi/Jueyoudi.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "selffie.png"
   name             : "Mengyan He"
   pronouns         :  "she/her"  
   bio              : "Ph.D. Applicant | Optimal Control & Dynamical Systems"
