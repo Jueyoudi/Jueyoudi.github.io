@@ -27,33 +27,58 @@ I am interested in developing mathematical and computational approaches to contr
 
 ---
 
+
 ## Selected Research
 
 ### 1. Pattern Control of Ensemble Dynamical Systems
 
 **Optimal Control | Ensemble Systems | Numerical Simulation**
 
-Steering parameter-dependent dynamical systems toward prescribed geometric configurations, including circles, triangles, and star-shaped patterns, using moment-based optimal control.
+Steering parameter-dependent dynamical systems through prescribed geometric configurations using moment-based optimal control.
+
+**Triangle → Square → Maple Leaf**
+
+<video width="100%" controls playsinline preload="metadata">
+  <source src="/videos/triangle_square_maple_controls.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
+
+*Simulation of geometric pattern transformations under shared control inputs.*
 
 [View Project Details](/portfolio/pattern-control/)
+
+---
 
 ### 2. Distribution Steering via Moment-Based Optimal Control
 
 **Moment-Based Methods | Distribution Steering | Numerical Optimization**
 
-Investigating numerical approaches to steering ensembles toward prescribed terminal distributions using finite-dimensional moment representations.
+Investigating the transformation from a unimodal Gaussian distribution toward a bimodal Gaussian mixture using finite-dimensional moment representations.
+
+<img src="/images/simulations/che_dis.png"
+     alt="Gaussian to Gaussian mixture distribution steering"
+     width="100%">
+
+*Evolution of the ensemble output distribution from a single-peaked Gaussian distribution toward a bimodal Gaussian mixture.*
 
 [View Project Details](/portfolio/distribution-steering/)
+
+---
 
 ### 3. State-Constrained Ensemble Optimal Control
 
 **Constrained Optimization | Moment Conditions | Positive Semidefinite Matrices**
 
-Exploring numerical formulations for ensemble optimal control under state constraints, including integral conditions and positive semidefinite moment matrices.
+Investigating constrained ensemble optimal control through moment-based representations and positive semidefinite conditions, including obstacle avoidance in nonlinear systems.
+
+<video width="100%" controls playsinline preload="metadata">
+  <source src="/videos/car.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
+*Nonlinear ensemble trajectories under state constraints. The red circle represents a forbidden region.*
 
 [View Project Details](/portfolio/state-constrained-control/)
 
-[Explore All Research Projects](/portfolio/)
 
 ---
 
