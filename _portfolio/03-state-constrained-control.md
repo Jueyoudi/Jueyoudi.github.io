@@ -806,6 +806,17 @@ The constrained solution illustrates how state restrictions can regulate interme
 
 **Key Observation:** The addition of state constraints significantly reduces excessive trajectory excursions and produces paths that better respect the admissible state region.
 
+#### Simulation Video
+
+The following video illustrates the time evolution of the constrained nonlinear ensemble trajectories.
+
+<video width="100%" controls playsinline preload="metadata">
+  <source src="/videos/sq.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
+
+*Video 1. Time evolution of the state-constrained ensemble system. The simulation illustrates how systems with different parameter values evolve under a shared control input while accounting for the square obstacle.*
+
 
 ### 7.3 Case III: Nonlinear Ensemble Control with Obstacle Avoidance
 
@@ -859,11 +870,11 @@ The different trajectories also illustrate how parameter variations influence th
 The following video illustrates the time evolution of the constrained nonlinear ensemble trajectories.
 
 <video width="100%" controls playsinline preload="metadata">
-  <source src="/videos/nonlinear-car-control.mp4" type="video/mp4">
+  <source src="/videos/car.mp4" type="video/mp4">
   Your browser does not support HTML5 video.
 </video>
 
-*Video 1. Time evolution of the state-constrained nonlinear ensemble system. The simulation illustrates how systems with different parameter values evolve under a shared control input while accounting for the circular obstacle.*
+*Video 2. Time evolution of the state-constrained nonlinear ensemble system. The simulation illustrates how systems with different parameter values evolve under a shared control input while accounting for the circular obstacle.*
 
 ---
 
