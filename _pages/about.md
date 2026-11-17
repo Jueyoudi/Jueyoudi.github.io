@@ -72,7 +72,7 @@ Investigating the transformation from a unimodal Gaussian distribution toward a 
 Investigating constrained ensemble optimal control through moment-based representations and positive semidefinite conditions, including obstacle avoidance in nonlinear systems.
 
 <video width="100%" controls playsinline preload="metadata">
-  <source src="/videos/car.mp4" type="video/mp4">
+  <source src="/videos/sq.mp4" type="video/mp4">
   Your browser does not support HTML5 video.
 </video>
 *Nonlinear ensemble trajectories under state constraints. The red circle represents a forbidden region.*
