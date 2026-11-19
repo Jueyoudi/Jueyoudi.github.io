@@ -19,7 +19,7 @@ main:
     url: /portfolio/
 
   - title: "Research Notes"
-    url: /research-notes/
+    url: /files/research_note.pdf
 
   - title: "Teaching"
     url: /teaching/
