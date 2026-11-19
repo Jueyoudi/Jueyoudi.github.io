@@ -10,16 +10,18 @@ redirect_from:
 
 Hi! I'm **Shirley He**. I received my master's degree from **Washington University in St. Louis**, where I developed a strong interest in optimal control, dynamical systems, and numerical optimization.
 
-My research focuses on **ensemble control of parameter-dependent dynamical systems**, with particular interests in moment-based representations, numerical optimal control, and state-constrained optimization.
+My research focuses on **ensemble control of parameter-dependent dynamical systems**, with particular interests in its applications to multi-robot coordination, obstacle avoidance, motion planning, quantum control, and other complex dynamical systems.
 
 I am seeking **Ph.D. opportunities for Fall 2027**, particularly in Electrical and Computer Engineering and related areas of Systems and Control.
 
+
 ## Research Interests
 
-- **Optimal Control and Dynamical Systems**
-- **Ensemble Control**
-- **Numerical Optimization and Computational Methods**
-- **Moment-Based Methods and Constrained Control**
+- Ensemble Control
+- Numerical Optimization
+- Robotics
+- Motion Planning
+
 
 I am interested in developing mathematical and computational approaches to control problems, particularly those involving high-dimensional or parameter-dependent dynamical systems.
 
